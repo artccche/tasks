@@ -1,26 +1,29 @@
-# Задание 3: Leson 3
-
-
-sentence = input("Введите предложение")
+sentence = input("Введите предложение: ")
 words = sentence.split()
-the_longest_word = max(words, key=len)
-print(the_longest_word)
+longest_word = ""
+for word in words:
+    word = word.strip(",.!?")
+    if len(word) > len(longest_word):
+        longest_word = word
+print("Самое длинное слово в предложении:", longest_word)
 
 
-srtring = input("Введите строку")
-srtring = srtring.replace(" ", "")
-no_replay = "".join(set(srtring))
-print(no_replay)
+sentence = input("Введите строку: ")
+new_sentence = ""
+for char in sentence:
+    if char not in new_sentence and char != " ":
+        new_sentence += char
+print(new_sentence)
 
 
-string = input()
-upper_count = 0
+sentence = input("Введите строку: ")
 lower_count = 0
-for char in string:
+upper_count = 0
+for char in sentence:
     if char.isalpha() and char.isascii():
-        if char.isupper():
-            upper_count += 1
-        elif char.islower():
+        if char.islower():
             lower_count += 1
-print(upper_count)
-print(lower_count)
+        elif char.isupper():
+            upper_count += 1
+print("Количество строчных букв:", lower_count)
+print("Количество прописных букв:", upper_count)
